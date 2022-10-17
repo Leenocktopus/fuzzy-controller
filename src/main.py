@@ -7,8 +7,6 @@ from src.service.service import Service as Svc
 from webdriver_manager.chrome import ChromeDriverManager
 
 from src.repository.price_store import PriceStore
-from src.service import inference_mamdani, model
-from src.service import fuzzy_operators
 from src.ui.ui import UI
 
 
@@ -24,8 +22,7 @@ def get_driver():
 if __name__ == "__main__":
 
     store = PriceStore(get_driver())
-    print(store.low)
-    print(store.high)
+    store.get_high_and_low()
     service = Svc(store)
 
     # for lv in model.input_lvs:
